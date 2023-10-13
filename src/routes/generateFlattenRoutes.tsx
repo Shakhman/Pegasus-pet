@@ -35,8 +35,6 @@ export const renderRoutes = (mainRoutes: RouteData[]) => {
       );
     });
 
-    console.log(layouts);
-
     return <ReactRoutes>{layouts}</ReactRoutes>;
   };
 

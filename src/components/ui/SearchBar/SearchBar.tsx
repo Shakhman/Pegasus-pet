@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Avatar, Grid } from '@mui/material';
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
@@ -13,7 +13,7 @@ import { ThemeModeContext } from '@/contexts/ThemeModeContext';
 
 import { useCurrentThemeColor } from '@/hooks/useCurrentThemeColor';
 
-export default function SearchBar() {
+const SearchBar = () => {
   const useThemeMode = useContext(ThemeModeContext);
   const navigate = useNavigate();
   const { setIsAuth } = useContext(AuthContext);
@@ -71,4 +71,6 @@ export default function SearchBar() {
       </Grid>
     </Grid>
   );
-}
+};
+
+export default memo(SearchBar);

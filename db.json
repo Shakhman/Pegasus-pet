@@ -1,0 +1,116 @@
+{
+  "nft-cards": [
+    {
+      "id": 1,
+      "title": "Abstarct 22",
+      "author": "Shalhman M.",
+      "bid": 2.22,
+      "img": "src/assets/card-placholder.jpeg",
+      "users": [
+        "Shakman M",
+        "Ololo Kek",
+        "Measd A",
+        "Ed El"
+      ],
+      "tags": [
+        "music",
+        "art"
+      ],
+      "isFavorite": false
+    },
+    {
+      "id": 2,
+      "title": "Nwe SS",
+      "author": "Shalhman M.",
+      "bid": 1.02,
+      "img": "src/assets/card-placholder.jpeg",
+      "users": [
+        "shakman M",
+        "Ololo"
+      ],
+      "tags": [
+        "art"
+      ],
+      "isFavorite": false
+    },
+    {
+      "id": 3,
+      "title": "Brain SS",
+      "author": "Shalhman M.",
+      "bid": 2,
+      "img": "src/assets/card-placholder.jpeg",
+      "users": [
+        "Shakman M",
+        "Ololo Kek"
+      ],
+      "tags": [
+        "music"
+      ],
+      "isFavorite": false
+    },
+    {
+      "id": 4,
+      "title": "Abstarct SS",
+      "author": "Shalhman M.",
+      "bid": 22.22,
+      "img": "src/assets/card-placholder.jpeg",
+      "users": [
+        "Shakman M",
+        "Ololo Kek"
+      ],
+      "tags": [
+        "music"
+      ],
+      "isFavorite": false
+    },
+    {
+      "id": 5,
+      "title": "Abstarct SS",
+      "author": "Shalhman M.",
+      "bid": 3.11,
+      "img": "src/assets/card-placholder.jpeg",
+      "tags": [
+        "sport"
+      ],
+      "isFavorite": false
+    },
+    {
+      "id": 2111,
+      "title": "Mood SS",
+      "author": "Shalhman M.",
+      "bid": 2.22,
+      "img": "src/assets/card-placholder.jpeg",
+      "tags": [
+        "sport"
+      ],
+      "isFavorite": false
+    },
+    {
+      "id": 223,
+      "title": "Jooly SS",
+      "author": "Shalhman M.",
+      "bid": 2.22,
+      "img": "src/assets/card-placholder.jpeg",
+      "tags": [
+        "sport",
+        "music"
+      ],
+      "isFavorite": false
+    },
+    {
+      "id": 1233,
+      "title": "Abstarct SS",
+      "author": "Shalhman M.",
+      "bid": 2.22,
+      "img": "src/assets/card-placholder.jpeg",
+      "users": [
+        "Shakman M",
+        "Ololo Kek"
+      ],
+      "tags": [
+        "music"
+      ],
+      "isFavorite": false
+    }
+  ]
+}

@@ -19,7 +19,6 @@ export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       width: (props: IconCircularBoxProps) => {
-        console.log(props);
         return sizeMapping[props.size!];
       },
       height:  (props: IconCircularBoxProps) => sizeMapping[props.size!],

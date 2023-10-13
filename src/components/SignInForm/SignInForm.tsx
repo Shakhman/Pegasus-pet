@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import * as yup from 'yup';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -11,6 +12,9 @@ import { useCurrentThemeColor } from '@/hooks/useCurrentThemeColor';
 
 import InputLabel from '@/components/ui/InputLabel/BaseInputLabel';
 import { AuthContext } from '@/contexts/AuthContext';
+
+import { getAuthData } from '@/store/auth/auth-selectors';
+import { setAuthData } from '@/store/auth/auth-actions';
 
 const schema = yup.object().shape({
   email: yup.string().email('Invalid email format').required('Required'),
@@ -28,7 +32,10 @@ export default function SignInForm() {
   const infoTextColor = useCurrentThemeColor('secondaryLight');
   const [showPassword, setShowPassword] = useState(false);
   const { setIsAuth } = useContext(AuthContext);
+
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -45,7 +52,7 @@ export default function SignInForm() {
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   const onSubmit: SubmitHandler<SignInData> = (data) => {
-    console.log(data);
+    dispatch(setAuthData(data));
     setIsAuth(true);
     navigate('/');
   };

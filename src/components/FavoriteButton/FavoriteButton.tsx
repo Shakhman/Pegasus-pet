@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { IconButton, IconButtonProps } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -6,22 +5,24 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 type Value = boolean;
 
 type FacoriteButtonProps = {
-    handleClick: (state: Value) => void,
-    value?: Value,
-    size?: IconButtonProps['size'],
+  handleClick: (state: Value) => void,
+  value?: Value,
+  size?: IconButtonProps['size'],
 }
 
 export default function FavoriteButton(props: FacoriteButtonProps) {
   const { handleClick, value = false, size = 'small' } = props;
-  const [selected, setSelected] = useState<Value>(value);
+  // const [selected, setSelected] = useState<Value>(value);
 
   function onButtonClick() {
-    setSelected(prev => {
-      const newState = !prev;
-      handleClick(newState);
+    // setSelected(prev => {
+    //   const newState = !prev;
+    //   handleClick(newState);
 
-      return newState;
-    });
+    //   return newState;
+    // });
+
+    handleClick(!value);
   }
 
   return (
@@ -29,17 +30,17 @@ export default function FavoriteButton(props: FacoriteButtonProps) {
       { 
         backgroundColor: '#FFF',
         '& .MuiSvgIcon-root': {
-          fill: (theme) => selected ? theme.palette.primaryAlt.main : null
+          fill: (theme) => value ? theme.palette.primaryAlt.main : null
         },
         '&:hover': {
           backgroundColor: '#FFF',
           '& .MuiSvgIcon-root': {
-            fill: (theme) => selected ?  theme.palette.primary.main : theme.palette.primaryAlt.main
+            fill: (theme) => value ?  theme.palette.primary.main : theme.palette.primaryAlt.main
           }
         }
       }
     } onClick={onButtonClick}>
-      {selected ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+      {value ? <FavoriteIcon /> : <FavoriteBorderIcon />}
     </IconButton>
   );
 }

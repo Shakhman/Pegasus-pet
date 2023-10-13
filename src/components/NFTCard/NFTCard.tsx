@@ -11,25 +11,34 @@ import Subtitle from '../ui/Subtitle/Subtitle';
 import { useCurrentThemeColor } from '@/hooks/useCurrentThemeColor';
 import FavoriteButton from '../FavoriteButton/FavoriteButton';
 import { Grid } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import { setFavoriteCardById } from '@/store/nft-cards/nft-cards-actions';
 
 type NFTCardProps = {
-    title: string,
-    author: string,
-    bid: number,
-    img: string,
-    tags: string[]
-    users?: string[],
+  id: number;
+  isFavorite: boolean;
+  title: string,
+  author: string,
+  bid: number,
+  img: string,
+  tags: string[]
+  users?: string[],
 }
 
 export default function NFTCard(props: NFTCardProps) {
-  const { title, author, bid, img, users = [] } = props; 
+  const { id, title, author, bid, img, isFavorite, users = [] } = props; 
   const bidColor = useCurrentThemeColor('primary');
-
+  const dispatch = useDispatch();
 
   const genAvatarName = (name: string) => {
     const [firstName, lastName] = name.split(' ');
 
     return [firstName, lastName].map(str => str?.at(0)?.toUpperCase());
+  };
+
+  const onFavoriteIconClick = (state: boolean) => {
+    console.log(id);
+    dispatch(setFavoriteCardById({ id, isFavorite: state }));
   };
 
   return (
@@ -39,7 +48,7 @@ export default function NFTCard(props: NFTCardProps) {
         image={img}
         title={title}
       >
-        <FavoriteButton handleClick={() => ({})}/>
+        <FavoriteButton value={isFavorite} handleClick={(state) => onFavoriteIconClick(state)}/>
       </CardMedia>
       <CardContent>
         <Grid container justifyContent="space-between" alignItems="center">

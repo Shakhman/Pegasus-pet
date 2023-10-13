@@ -9,8 +9,6 @@ const Routes = renderRoutes(routes);
 export default function AppRouter() {
   const { isAuth } = useContext(AuthContext);
 
-
-
   return (
     <BrowserRouter>
       <Routes isAuthorized={typeof isAuth === 'boolean' ? isAuth : true} />

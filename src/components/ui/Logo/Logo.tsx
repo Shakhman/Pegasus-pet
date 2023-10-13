@@ -1,11 +1,11 @@
+import { memo } from 'react';
 import { useCurrentThemeColor } from '@/hooks/useCurrentThemeColor';
 import { useStyles } from './Logo.styles';
 
 type LogoProps = {
   color?: string;
 }
-
-export default function Logo(props: LogoProps) {
+const Logo = (props: LogoProps) => {
   const themeColor = useCurrentThemeColor('primaryAlt');
   const { color = themeColor } = props;
 
@@ -18,4 +18,6 @@ export default function Logo(props: LogoProps) {
       Pegasus UI
     </div>
   );
-}
+};
+
+export default memo(Logo);
