@@ -1,7 +1,7 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 
-import { NFTCardsReducer } from './nft-cards/nft-cards-reducers';
+import { NFTCardsReducer } from "./nft-cards/nft-cards-reducers";
 
 export const rootReducer = combineReducers({
-  cards: NFTCardsReducer
+  cards: NFTCardsReducer,
 });

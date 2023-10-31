@@ -1,44 +1,24 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true,
+    node: true,
   },
+  parser: '@typescript-eslint/parser',
+  plugins: ['react', 'prettier'],
   extends: [
     'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:jsx-a11y/recommended',
+    'prettier',
   ],
-  overrides: [
-    {
-      env: {
-        node: true,
-      },
-      files: ['.eslintrc.{js,cjs}'],
-      parserOptions: {
-        sourceType: 'script',
-      },
-    },
-  ],
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-  },
-  plugins: ['@typescript-eslint', 'react'],
   rules: {
-    indent: ['error', 2],
-    'linebreak-style': ['error', 'unix'],
-    quotes: ['error', 'single'],
-    semi: ['error', 'always'],
-    'react/react-in-jsx-scope': ['off'],
-    'no-else-return': ['error', { allowElseIf: false }],
-    'object-curly-spacing': ['error', 'always'],
-    // 'sort-imports': ['error', {
-    //   'ignoreCase': false,
-    //   'ignoreDeclarationSort': false,
-    //   'ignoreMemberSort': false,
-    //   'memberSyntaxSortOrder': ['none', 'all', 'multiple', 'single'],
-    //   'allowSeparatedGroups': false
-    // }]
+    'prettier/prettier': 'error',
+    'react/react-in-jsx-scope': 'off',
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
   },
 };

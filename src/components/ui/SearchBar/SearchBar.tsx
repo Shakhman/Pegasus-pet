@@ -1,4 +1,4 @@
-import { useContext, memo } from 'react';
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Avatar, Grid } from '@mui/material';
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
@@ -73,4 +73,4 @@ const SearchBar = () => {
   );
 };
 
-export default memo(SearchBar);
+export default SearchBar;
