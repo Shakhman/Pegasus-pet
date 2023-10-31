@@ -7,28 +7,17 @@ import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
 import AvatarGroup from '@mui/material/AvatarGroup';
 
-import Subtitle from '../ui/Subtitle/Subtitle';
+import Subtitle from '../../components/ui/Subtitle/Subtitle';
 import { useCurrentThemeColor } from '@/hooks/useCurrentThemeColor';
-import FavoriteButton from '../FavoriteButton/FavoriteButton';
+import FavoriteButton from '../../components/FavoriteButton/FavoriteButton';
 import { Grid } from '@mui/material';
-import { useDispatch } from 'react-redux';
-import { setFavoriteCardById } from '@/store/nft-cards/nft-cards-actions';
+import { NFTCard, fetchNFTCards, setNFTCardIsFavorite } from './nft-cards-slice';
+import { useAppDispatch } from '@/hooks/useAppDispatch';
 
-type NFTCardProps = {
-  id: number;
-  isFavorite: boolean;
-  title: string,
-  author: string,
-  bid: number,
-  img: string,
-  tags: string[]
-  users?: string[],
-}
-
-export default function NFTCard(props: NFTCardProps) {
+export default function NFTCardItem(props: NFTCard) {
   const { id, title, author, bid, img, isFavorite, users = [] } = props; 
   const bidColor = useCurrentThemeColor('primary');
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const genAvatarName = (name: string) => {
     const [firstName, lastName] = name.split(' ');
@@ -36,9 +25,14 @@ export default function NFTCard(props: NFTCardProps) {
     return [firstName, lastName].map(str => str?.at(0)?.toUpperCase());
   };
 
-  const onFavoriteIconClick = (state: boolean) => {
-    console.log(id);
-    dispatch(setFavoriteCardById({ id, isFavorite: state }));
+  const onFavoriteIconClick = async (newIsFavorite: NFTCard['isFavorite']) => {
+    try {
+      await dispatch(setNFTCardIsFavorite({ id, isFavorite: newIsFavorite }));
+
+      dispatch(fetchNFTCards());
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
@@ -48,7 +42,7 @@ export default function NFTCard(props: NFTCardProps) {
         image={img}
         title={title}
       >
-        <FavoriteButton value={isFavorite} handleClick={(state) => onFavoriteIconClick(state)}/>
+        <FavoriteButton value={isFavorite} handleClick={(isFavorite) => onFavoriteIconClick(isFavorite)}/>
       </CardMedia>
       <CardContent>
         <Grid container justifyContent="space-between" alignItems="center">

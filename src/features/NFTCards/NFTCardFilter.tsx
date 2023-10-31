@@ -1,11 +1,11 @@
-import { setNFTCardFilter } from '@/store/nft-cards/nft-cards-actions';
+import { useAppDispatch } from '@/hooks/useAppDispatch';
+import { setNFTFilter, clearNFTFilter } from './nft-cards-slice';
 import { Button, Grid } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
 
 export default function NFTCardFilter() {
   const [selected, setSelected] = useState<string | null>(null);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const filters = [
     {
@@ -24,13 +24,13 @@ export default function NFTCardFilter() {
 
   useEffect(() => {
     return () => {
-      dispatch(setNFTCardFilter(''));
+      dispatch(clearNFTFilter());
     };
   }, [dispatch]);
 
   const onFilterClick = (value: string) => {
     setSelected(() => {
-      dispatch(setNFTCardFilter(value));
+      dispatch(setNFTFilter(value));
       return value;
     });
   };

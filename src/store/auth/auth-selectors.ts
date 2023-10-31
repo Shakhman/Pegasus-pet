@@ -1,1 +1,0 @@
-export const getAuthData = (state: any) => state.auth;

@@ -33,7 +33,6 @@ export default function SignInForm() {
   const [showPassword, setShowPassword] = useState(false);
   const { setIsAuth } = useContext(AuthContext);
 
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const {
@@ -51,8 +50,7 @@ export default function SignInForm() {
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
-  const onSubmit: SubmitHandler<SignInData> = (data) => {
-    dispatch(setAuthData(data));
+  const onSubmit: SubmitHandler<SignInData> = () => {
     setIsAuth(true);
     navigate('/');
   };

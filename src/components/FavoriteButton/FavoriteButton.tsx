@@ -12,16 +12,8 @@ type FacoriteButtonProps = {
 
 export default function FavoriteButton(props: FacoriteButtonProps) {
   const { handleClick, value = false, size = 'small' } = props;
-  // const [selected, setSelected] = useState<Value>(value);
 
   function onButtonClick() {
-    // setSelected(prev => {
-    //   const newState = !prev;
-    //   handleClick(newState);
-
-    //   return newState;
-    // });
-
     handleClick(!value);
   }
 

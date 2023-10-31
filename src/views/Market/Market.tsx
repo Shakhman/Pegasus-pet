@@ -1,6 +1,6 @@
 import { Grid } from '@mui/material';
-import NFTCardList from '@/components/NFTCardList/NFTCardList';
-import NFTCardFilter from '@/components/NFTCardFilter/NFTCardFilter';
+import NFTCardList from '@/features/NFTCards/NFTCardList';
+import NFTCardFilter from '@/features/NFTCards/NFTCardFilter';
 
 export default function Market() {  
   return (

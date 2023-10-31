@@ -23,7 +23,7 @@ export const setNFTCardFilter = (payload: string) => ({
 }); 
 
 export const fetchNFTCards = () => async (dispatch) => {
-  fetch('http://localhost:3000/nft-cards')
+  fetch('http://localhost:3001/nft-cards')
     .then(data => data.json())
     .then(data => dispatch(setNFTCards(data)));
 };

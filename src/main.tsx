@@ -8,7 +8,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
-import { store } from './store/index.ts';
+import { store } from './store';
 
 // eslint-disable-next-line react/no-deprecated
 ReactDOM.render(
